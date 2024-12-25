@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css"></link>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" 
+         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <div id="pic">
+            <div class="sun"></div>
+            <div class="mercury-orbit">
+                <div class="mercury rotation">
+                    <p class="planet">Mercury</p>
+                    <p id="dynamicData" class="dynamicText"></p>
+                </div>
+            </div>
+            <div class="venus-orbit">
+                <div class="venus rotation">
+                    <p class="planet">Venus</p>
+                    <p id="venusDynamicData" class="dynamicText"></p>
+                </div>
+            </div>
+            <div class="earth-orbit">
+                <div class="earth rotation">
+                    <p class="planet">Earth</p>
+                    <p id="earthDynamicData" class="dynamicText"></p>
+                    <div class="moon-orbit">
+                        <div class="moon">
+                            <p class="moon-text">Moon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mars-orbit">
+                <div class="mars rotation">
+                    <p class="planet">Mars</p>
+                    <p id="marsDynamicData" class="dynamicText"></p>
+                </div>
+            </div>
+            <div class="jupiter-orbit">
+                <div class="jupiter rotation">
+                    <p class="planet"> Jupiter</p>
+                    <p id="jupiterDynamicData" class="dynamicText"></p>
+                </div>
+            </div>
+            <div class="saturn-orbit">
+                <div class="saturn rotation">
+                    <p class="planet">Saturn</p>
+                    <p id="saturnDynamicData" class="dynamicText"></p>
+                </div>
+            </div>
+            <div class="uranus-orbit">
+                <div class="uranus rotation">
+                    <p class="planet">Uranus</p>
+                    <p id="uranusDynamicData" class="dynamicText"></p>
+                </div>
+            </div>
+            <div class="neptune-orbit">
+                <div class="neptune rotation">
+                    <p class="planet">Neptune</p>
+                    <p id="neptuneDynamicData" class="dynamicText"></p>
+                </div>
+            </div>
+        </div>
+        <div class="merecuryData">
+            <div class="subHeader">Mercury</div>
+            <button onclick="mercuryDistance()" class="btn btn1">Distance</button>
+            <button onclick="mercurySpeed()" class="btn btn1">Speed</button>
+            <button onclick="mercurySize()" class="btn btn1">Size</button>
+        </div>
+        <div class="venusData">
+            <div class="subHeader">Venus</div>
+            <button class="btn btn2" onclick="venusDistance()">Distance</button>
+            <button class="btn btn2" onclick="venusSpeed()">Speed</button>
+            <button class="btn btn2" onclick="venusSize()">Size</button>
+        </div>
+        <div class="EarthData">
+            <div class="subHeader">Earth</div>
+            <button class="btn btn3" onclick="earthDistance()">Distance</button>
+            <button class="btn btn3" onclick="earthSpeed()">Speed</button>
+            <button class="btn btn3" onclick="earthSize()">Size</button>
+        </div>
+        <div class="marsData">
+            <div class="subHeader">Mars</div>
+            <button class="btn btn4" onclick="marsDistance()">Distance</button>
+            <button class="btn btn4" onclick="marsSpeed()">Speed</button>
+            <button class="btn btn4" onclick="marsSize()">Size</button>
+        </div>
+        <div class="jupiterData">
+            <div class="subHeader">Jupiter</div>
+            <button class="btn btn5" onclick="jupiterDistance()">Distance</button>
+            <button class="btn btn5" onclick="jupiterSpeed()">Speed</button>
+            <button class="btn btn5" onclick="jupiterSize()">Size</button>
+        </div>
+        <div class="saturnData">
+            <div class="subHeader">Saturn</div>
+            <button class="btn btn6" onclick="saturnDistance()">Distance</button>
+            <button class="btn btn6" onclick="saturnSpeed()">Speed</button>
+            <button class="btn btn6" onclick="saturnSize()">Size</button>
+        </div>
+        <div class="uranusData">
+            <div class="subHeader">Uranus</div>
+            <button class="btn btn7" onclick="uranusDistance()">Distance</button>
+            <button class="btn btn7" onclick="uranusSpeed()">Speed</button>
+            <button class="btn btn7" onclick="uranusSize()">Size</button>
+        </div>
+        <div class="neptuneData">
+            <div class="subHeader">Neptune</div>
+            <button class="btn btn8" onclick="neptuneDistance()">Distance</button>
+            <button class="btn btn8" onclick="neptuneSpeed()">Speed</button>
+            <button class="btn btn8" onclick="neptuneSize()">Size</button>
+        </div>
+        <button class="download-Btn" id="download">Download Image</button>
+        
+        
+        <script src="script.js"></script>
+    </body>
+</html>
