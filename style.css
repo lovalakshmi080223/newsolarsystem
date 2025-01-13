@@ -1,6 +1,4 @@
-/* *{
-    cursor: url(img/logo1.png) ,auto;
-} */
+
 body{
     margin: 0px;
     padding: 0px;
@@ -21,7 +19,8 @@ body{
     justify-content: center;
     background-color: black;
     position: relative;
-    cursor: url(img/logo1.png) ,auto;
+    cursor: url(img/s1.png) ,auto;
+    
 }
 .sun{
     height: 80px;

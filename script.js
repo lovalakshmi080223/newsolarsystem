@@ -154,80 +154,29 @@ var neptuneSize = () => {
     const size = '49,244 km';
     neptuneDynamicData.innerHTML = `Size : ${size}`;
 }
+const captureBtn = document.getElementById('download');
+const solarSystem = document.getElementById('pic');   
+captureBtn.addEventListener('click',()=>{
+const clone = solarSystem.cloneNode(true);
+document.body.appendChild(clone);
 
-// let downloadBtn = document.getElementById('download');
-// downloadBtn.addEventListener('click',download_image);
-// function download_image(){
-//     html2canvas(document.getElementById('pic')).then(canvas => {
-//         const link = document.createElement('a');
-//         link.href = canvas.toDataURL('image/png');
-//         link.download = 'image.png';
-//         link.click();
-//     })
-// }
-// let downloadBtn = document.getElementById('download');
-// downloadBtn.addEventListener('click',download_image);
-// function download_image(){
-//     const solarSystem = document.getElementById('pic');
-//     const planets = document.querySelectorAll('.rotation');
-//     //pause animation
-//     planets.forEach(planet =>{
-//         planet.style.animationPlayState = "paused";
-//     })
-//     html2canvas(solarSystem,{useCORS: true,scale:2,allowTaint:false,scrollX:0,scrollY:0}).then(canvas =>{
-//         let link = document.createElement('a');
-//         link.download = 'solar_system.png';
-//         link.href = canvas.toDataURL();
-//         link.click();
+const planets = solarSystem.querySelectorAll('.rotation');
+const clonedPlanets = clone.querySelectorAll('.rotation');
 
-//         // resume animation
-//         planets.forEach(planet =>{
-//             planet.style.animationPlayState = "running";
-//         })
-//     });
-// }
-let downloadBtn = document.getElementById('download');
-downloadBtn.addEventListener('click', download_image);
-
-function download_image() {
-    const solarSystem = document.getElementById('pic');
-    const planets = document.querySelectorAll('.rotation');
-    
-    // Pause animation immediately
-    planets.forEach(planet => {
-        planet.style.animationPlayState = "paused";
-    });
-
-    // Force a reflow to ensure the DOM has updated with the paused animations
-    solarSystem.offsetHeight; // Accessing offsetHeight forces a reflow
-
-    // Use a small timeout to ensure that the visual state is updated before capturing
-    setTimeout(() => {
-        // Now use html2canvas to capture the solar system
-        html2canvas(solarSystem, {
-            useCORS: true,           // Allow cross-origin resources
-            scale: 2,                // Scale for higher resolution
-            allowTaint: false,       // Don't allow tainted resources (e.g., from different origins)
-            scrollX: 0,             // Ensure no horizontal scroll
-            scrollY: 0,             // Ensure no vertical scroll
-            backgroundColor: 'black' // Make sure background is black like the page
-        }).then(canvas => {
-            // Create an anchor element to trigger download
-            let link = document.createElement('a');
-            link.download = 'solar_system.png';
-            link.href = canvas.toDataURL(); // Generate image URL from canvas
-            link.click(); // Trigger download
-
-            // Resume animations after download
-            planets.forEach(planet => {
-                planet.style.animationPlayState = "running";
+planets.forEach((planet, index) => {
+const computedStyle = window.getComputedStyle(planet);
+const transform = computedStyle.transform;
+clonedPlanets[index].style.transform = transform;
+clonedPlanets[index].style.animation = 'none'; // Stop animation
             });
-        }).catch(error => {
-            console.error("Error during image capture:", error);
-            // Resume animation in case of error
-            planets.forEach(planet => {
-                planet.style.animationPlayState = "running";
-            });
-        });
-    }, 1000); // Increase delay to 1000ms to allow animation to fully pause before capture
-}
+ // Capture the cloned solar system
+html2canvas(clone).then(canvas => {
+document.body.removeChild(clone); // Remove the clone after capturing
+
+// Convert canvas to image and create a download link
+const link = document.createElement('a');
+link.href = canvas.toDataURL("image/png");
+link.download = 'solar-system-animated.png';
+link.click();
+});
+});
